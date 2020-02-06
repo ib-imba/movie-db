@@ -72,6 +72,12 @@ function App() {
           false
         )}
       </main>
+      <footer>
+        <a href="https://bit.ly/2vOTwgY" target="_blank">
+          <img src="./img/download_w.png" alt="logo" width="24" height="24" />
+          <div>See project</div>
+        </a>
+      </footer>
     </div>
   );
 }
