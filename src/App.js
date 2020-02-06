@@ -74,7 +74,12 @@ function App() {
       </main>
       <footer>
         <a href="https://bit.ly/2vOTwgY" target="_blank">
-          <img src="./img/download_w.png" alt="logo" width="24" height="24" />
+          <img
+            src="https://frozen-hollows-63691.herokuapp.com/img/download_w.f1b19e7e.png"
+            alt="logo"
+            width="24"
+            height="24"
+          />
           <div>See project</div>
         </a>
       </footer>
