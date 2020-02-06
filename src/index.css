@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  text-align: center;
+  background-image: url("./img/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 48px 16px 30px 16px;
+  text-shadow: 2px 2px #000000;
+}
+
+header h1 {
+  color: white;
+  font-size: 40px;
+}
+
+main {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 400px;
+  transition: 0.4 ease-in-out;
+}
+
+section {
+  padding: 15px;
+}
+
+section h1 {
+  color: #fff;
+}
+
+.searchbox {
+  display: block;
+  width: 100%;
+  padding: 15px;
+
+  border: none;
+  outline: none;
+  background: none;
+
+  background-color: #eee;
+  border-radius: 8px;
+
+  color: #53565a;
+  transition: 0.4s ease-in-out;
+}
+
+.searchbox:focus {
+  box-shadow: 0 0 8px 3px #4484c4;
+}
+
+small {
+  color: red;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px;
+  margin-top: 4px;
+  display: inline-block;
+  border-radius: 3px;
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  overflow-y: auto;
+  height: calc(100vh - 260px);
+}
+
+.results .result {
+  width: 33.333%;
+  min-width: 250px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.results .result img {
+  display: block;
+  width: 100%;
+}
+
+.results .result h3 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px;
+  background: #445565;
+  flex: 1 1 100%;
+  transition: 0.4s ease-out;
+}
+
+.results .result:hover {
+  background: #fff;
+  color: #223343;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #445565;
+
+  overflow-y: scroll;
+}
+
+.popup .content {
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 25px;
+
+  color: #fff;
+}
+
+.popup .content h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+.popup .content h2 span {
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.popup .content .rating {
+  margin-bottom: 30px;
+}
+
+.popup .content .plot {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px -15px 30px;
+}
+
+.popup .content .plot img {
+  flex: 1 1 50%;
+  max-width: 300px;
+  padding: 0px 15px;
+}
+
+.popup .content .plot p {
+  flex: 1 1 50%;
+  padding: 15px;
+}
+
+.popup .content .close {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: 700;
+
+  background: #4484c4;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+
+  transition: 0.4s ease-out;
+}
+
+.popup .content .close:hover {
+  background: #223343;
+}
