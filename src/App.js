@@ -11,16 +11,30 @@ function App() {
     results: [],
     selected: {}
   });
+
+  const [error, setError] = useState({
+    message: null
+  });
+
   const apiurl = "https://www.omdbapi.com/?apikey=2548b9eb";
 
   const search = e => {
-    if (e.key === "Enter" && state.s && state.s.length >= 3) {
+    if (e.key === "Enter") {
       axios(apiurl + "&s=" + state.s).then(({ data }) => {
-        let results = data.Search;
         // console.log(data);
-        setState(prevState => {
-          return { ...prevState, results: results };
-        });
+        let results = data.Search;
+        if (data.Response === "True") {
+          setState(prevState => {
+            return {
+              ...prevState,
+              results: results
+            };
+          });
+        } else {
+          setError({
+            message: data.Error
+          });
+        }
       });
     }
   };
@@ -37,9 +51,7 @@ function App() {
   const openPopup = id => {
     axios(apiurl + "&i=" + id).then(({ data }) => {
       let result = data;
-
       // console.log(result);
-
       setState(prevState => {
         return { ...prevState, selected: result };
       });
@@ -52,6 +64,9 @@ function App() {
     });
   };
 
+  const hasMessage = error.message;
+  const minCharacters = state.s.length < 3;
+
   return (
     <div className="App">
       <header>
@@ -63,7 +78,10 @@ function App() {
           search={search}
           results={state.results}
         />
-        <small>{state.s.length < 3 ? "min. 3 characters" : null}</small>
+        <div className="messages">
+          {hasMessage ? <small>{error.message}</small> : null}
+          {minCharacters ? <small>min. 3 characters</small> : null}
+        </div>
         <Results results={state.results} openPopup={openPopup} />
 
         {typeof state.selected.Title != "undefined" ? (
